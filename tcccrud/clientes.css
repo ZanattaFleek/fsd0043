@@ -40,6 +40,9 @@ body {
 
 .formularioSpan {
     display: block;
+    color: red;
+    font-size: 12px;
+    margin-left: 10px;
 }
 
 .formularioButton {
@@ -54,4 +57,17 @@ body {
 .formularioButton:hover {
     color: white;
     background-color: blue;
+}
+
+.tabela {
+    margin: auto;
+    margin-top: 25px;
+}
+
+.tabela,
+tr,
+td,
+th {
+    border: 1px solid gray;
+    min-width: 100px;
 }
