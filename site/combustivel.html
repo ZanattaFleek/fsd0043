@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Aula de Programação</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script>
+        function btCalcularCustos() {
+            const valorEtanol = parseFloat(document.getElementById('txtValorEtanol').value)
+            const valorGasolina = parseFloat(document.getElementById('txtValorGasolina').value)
+            const KmGasolina = parseFloat(document.getElementById('txtKmGasolina').value)
+            const KmEtanol = parseFloat(document.getElementById('txtKmEtanol').value)
+
+            const valorKmRodadoGasolina = valorGasolina / KmGasolina
+            const valorKmRodadoEtanol = valorEtanol / KmEtanol
+
+            document.getElementById('txtValorKmRodadoGasolina').value = valorKmRodadoGasolina
+            document.getElementById('txtValorKmRodadoEtanol').value = valorKmRodadoEtanol
+
+            let resposta
+
+            if (valorKmRodadoEtanol < valorKmRodadoGasolina) {
+                resposta = 'Melhor Abastecer com Etanol'
+            } else {
+                resposta = 'Melhor abastecer com Gasolina'
+            }
+
+            // console.log(document.getElementById('txtResposta').innerHTML)
+
+            document.getElementById('txtResposta').innerHTML = resposta
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <label>Qual o Valor do Litro de Etanol?</label><br />
+    <input type="text" id="txtValorEtanol" value="3.99" /><br />
+    <br />
+
+    <label>Qual o Km por Litro em Etanol?</label><br />
+    <input type="text" id="txtKmEtanol" value="4.5" /><br />
+    <br />
+
+    <label>Qual o Valor do Litro de Gasolina?</label><br />
+    <input type="text" id="txtValorGasolina" value="5.29" /><br />
+    <br />
+
+    <label>Qual o Km por Litro em Gasolina?</label><br />
+    <input type="text" id="txtKmGasolina" value="7.5" /><br />
+    <br />
+
+    <input type="button" value="Clique Aqui" onclick="btCalcularCustos()" />
+
+    <h1>Custos do Km Rodado</h1>
+    <label>Na Gasolina: </label>
+    <input type="text" readonly id="txtValorKmRodadoGasolina" /><br />
+    <br />
+    <label>No Etanol: </label>
+    <input type="text" readonly id="txtValorKmRodadoEtanol" />
+
+    <h3 id="txtResposta"></h3>
+
+</body>
+
+</html>

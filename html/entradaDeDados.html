@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada de Dados</title>
+
+    <script>
+        function converterParaMaiusculo(nomeCampo) {
+            let txtCampo = document.getElementById(nomeCampo).value
+
+            document.getElementById(nomeCampo).value = txtCampo.toUpperCase()
+        }
+
+        function teclaDigitada(e, f, g) {
+            console.log(e)
+            console.log(f)
+            console.log(g)
+            // let txtCampo = document.getElementById(nomeCampo).value
+            // console.log(txtCampo)
+        }
+    </script>
+</head>
+
+<body>
+
+    <input id="txtNome" type="text" maxlength="40" onkeydown="teclaDigitada('txtNome')"
+        onchange="converterParaMaiusculo" />
+
+    <input id="txtEndereco" type="text" maxlength="40" onkeyup="teclaDigitada('txtEndereco')"
+        onchange="converterParaMaiusculo" />
+
+    <input id="txtCidade" type="text" maxlength="40" onkeypress="teclaDigitada('txtCidade')"
+        onchange="converterParaMaiusculo" />
+
+</body>
+
+</html>

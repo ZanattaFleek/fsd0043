@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body div label {
+            color: cyan;
+        }
+
+        body {
+            background-color: rgb(66, 102, 102);
+            color: white;
+            font: normal 20pt Impact;
+        }
+
+        h1,
+        h2 {
+            font: normal 48pt Impact;
+            color: rgb(14, 13, 13);
+            text-align: center;
+            border: 5px solid red;
+        }
+
+        .centralizar {
+            text-align: center;
+        }
+
+        #resultado {
+            font-size: '32px';
+            color: green;
+            background-color: yellow;
+        }
+
+        span {
+            display: block;
+            color: yellow;
+            background-color: red;
+        }
+
+        input::placeholder {
+            font-weight: bold;
+            opacity: 0.5;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="centralizar"> Tabuada </h1>
+    <p class="centralizar">Faça seu calculo: </p>
+    <label for="num"> Digite um número : </label>
+    <input type="text" id="calculo" nome="calculo" /> <br />
+
+    <div><label for="num"> Digite um número : </label></div>
+    <div>Este é com DIV</div>
+    <div>Este é com DIV</div>
+    <div>Este é com DIV</div>
+    <div>Este é com DIV</div>
+    <span>Este é com Span</span>
+    <span>Este é com Span</span>
+    <span>Este é com Span</span>
+    <span>Este é com Span</span>
+
+    <span id="resultado">1 x 2 = 2 <br> 2 x 2 = 4</span>
+
+    <h2>Com oque compensa abastecer? </h2>
+    <label>Digite o Valor do litro de Etanol: </label> <br />
+    <input type='text' id="txtValorEtanol" placeholder="Digite uma mensagem..." /> <br />
+    <br />
+
+    <label>Digite o KM por litro em Etanol: </label> <br />
+    <input type="text" id="txtKmEtanol" value="number" /> <br />
+    <br />
+
+    <input type="button" value="Calular" onclick="calcularTabuada()">
+
+    <script>
+
+        function calcularTabuada() {
+
+            var num = document.getElementById('calculo').value;
+            var tabuada = ' ';
+
+            for (var x = 1; x <= 10; x++) {
+                tabuada += num + ' X ' + x + ' = ' + (num * x) + '<br>';
+            }
+
+            document.getElementById('resultado').innerHTML = tabuada;
+            // console.log(tabuada)
+
+        }
+
+    </script>
+</body>
+
+</html>

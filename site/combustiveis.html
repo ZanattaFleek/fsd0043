@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Aula de Programação</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="./combustiveis.css" rel="stylesheet" />
+
+    <script src="./combustiveis.js"></script>
+
+</head>
+
+<body>
+
+    <a href="https://www.fleekcursos.com.br">Site Fleek Cursos</a>
+
+    <label>Qual o Valor do Litro de Etanol?</label><br />
+    <input id="txtValorEtanol" class="caixaDeTexto" type="text" value="3.99" /><br />
+    <br />
+
+    <label>Qual o Km por Litro em Etanol?</label><br />
+    <input type="text" id="txtKmEtanol" value="4.5" /><br />
+    <br />
+
+    <label>Qual o Valor do Litro de Gasolina?</label><br />
+    <input type="text" id="txtValorGasolina" value="5.29" /><br />
+    <br />
+
+    <label>Qual o Km por Litro em Gasolina?</label><br />
+    <input type="text" id="txtKmGasolina" value="7.5" /><br />
+    <br />
+
+    <input type="button" value="Clique Aqui" onclick="btCalcularCustos()" />
+
+    <h1>Custos do Km Rodado</h1>
+    <label>Na Gasolina: </label>
+    <input type="text" readonly id="txtValorKmRodadoGasolina" /><br />
+    <br />
+    <label>No Etanol: </label>
+    <input type="text" readonly id="txtValorKmRodadoEtanol" />
+
+    <h3 id="txtResposta"></h3>
+
+</body>
+
+</html>

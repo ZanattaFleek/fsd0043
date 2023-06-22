@@ -1,0 +1,27 @@
+.quebraDeLinha {
+    display: block;
+}
+
+.tipoDeLetra {
+    color: red;
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tabela {
+    border-width: 1px;
+    border: solid;
+    border-color: yellow;
+}
+
+.tabelaTR {
+    border-width: 1px;
+    border: solid;
+    border-color: red;
+}
+
+.tabelaTD {
+    border-width: 1px;
+    border: solid;
+    border-color: blue;
+}

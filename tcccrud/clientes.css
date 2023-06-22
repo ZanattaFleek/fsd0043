@@ -1,0 +1,57 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.formularioLogo {
+    width: 100px;
+    margin: auto;
+}
+
+.formularioTitulo {
+    font-weight: bolder;
+    font-size: 24px;
+    margin: auto;
+    text-align: center;
+}
+
+.formulario {
+    border: 1px solid grey;
+    border-radius: 7px;
+    max-width: 400px;
+    padding: 30px 10px;
+    margin: auto;
+}
+
+.formularioLabel {
+    display: block;
+    margin-left: 7px;
+    margin-top: 7px;
+    margin-bottom: 2px;
+}
+
+.formularioInput {
+    margin: auto;
+    width: 95%;
+    display: block;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.formularioSpan {
+    display: block;
+}
+
+.formularioButton {
+    padding: 5px;
+    text-align: right;
+    margin: auto;
+    margin-top: 15px;
+    border: 1px solid gray;
+    border-radius: 7px;
+}
+
+.formularioButton:hover {
+    color: white;
+    background-color: blue;
+}

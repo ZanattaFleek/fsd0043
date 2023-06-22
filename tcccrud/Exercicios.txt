@@ -1,0 +1,37 @@
+1 - Travar o CEP para aceitar somente números - Não exibir o 'up' / 'down' numérico quando tipo for number
+
+2 - Campos
+
+* Nome
+* Endereço Completo (igual ao via CEP)
+- logradouro
+- complemento
+- bairro
+- cidade / localidade
+- uf
+
+* Número
+
+* Data de Nascimento
+
+* CPF
+
+* email
+
+* telefone
+
+* Estado Civil
+
+* Estudante - Sim / Não
+
+* Nível de Escolaridade (Barra de Progresso)
+
+* Idiomas --> CheckBox (Inglês | Francês | Espanhol | Português)
+
+* Renda Mensal (número tipo moeda)
+
+* Senha
+
+* ConfirmarSenha
+
+* 

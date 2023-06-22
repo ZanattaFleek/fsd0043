@@ -1,0 +1,18 @@
+label,
+input,
+h1 {
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(37, 132, 18);
+}
+
+.caixaDeTexto {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(88, 13, 236);
+    font-size: 22px;
+}
+
+#txtValorEtanol {
+    text-align: center;
+    color: red;
+}

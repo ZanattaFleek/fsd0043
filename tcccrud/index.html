@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./clientes.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cadastro de Clientes</title>
+</head>
+
+<body>
+    <h1 class="text-3xl font-bold">
+        Hello world!
+    </h1>
+
+    <div class="formulario">
+        <img class="formularioLogo" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            alt="Your Company">
+        <div class="formularioTitulo">Cadastro de Clientes</div>
+        <label class="formularioLabel" for="txtNome">Nome</label>
+        <input class="formularioInput" type="text" id="txtNome" maxlength="35" />
+        <span class="formularioSpan" id="erroTxtNome"></span>
+
+        <label class="formularioLabel" for="txtCep">Cep</label>
+        <input class="formularioInput" type="text" id="txtCep" maxlength="8" />
+        <span class="formularioSpan" id="erroTxtCep"></span>
+
+        <label class="formularioLabel" for="txtLogradouro">Logradouro</label>
+        <input class="formularioInput" type="text" id="txtLogradouro" maxlength="35" />
+        <span class="formularioSpan" id="erroTxtLogradouro"></span>
+
+        <input class="formularioButton" type="button" value="Cadastrar" />
+    </div>
+</body>
+
+</html>

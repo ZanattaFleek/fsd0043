@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Lista Ordenada</title>
+
+    <link href="./listaordenada.css" rel="stylesheet" type="text/css" />
+
+    <script src="./listaordenada.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <label class="quebraDeLinha" for="txtNome" id="lblNome">Nome</label>
+    <input class="quebraDeLinha" type="text" id="txtNome" placeholder="Digite o Nome" />
+
+    <input type="button" value="Incluir" onclick="incluirNomeNaLista()" />
+
+    <ul id="txtLista">
+    </ul>
+
+    <h4>Lista em Tabela</h4>
+
+    <table class="tabela">
+        <tr class="tabelaTR">
+            <th class="tabelaTD">Ordem</th>
+            <th class="tabelaTD">Nome</th>
+        </tr>
+        <tr class="tabelaTR">
+            <td class="tabelaTD">01</td>
+            <td class="tabelaTD">Fleek</td>
+        </tr>
+        <tr class="tabelaTR">
+            <td class="tabelaTD">02</td>
+            <td class="tabelaTD">Victor</td>
+        </tr>
+        <tr class="tabelaTR">
+            <td class="tabelaTD">03</td>
+            <td class="tabelaTD">Stella</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tabuada</title>
+</head>
+
+<body>
+  <form>
+    <label for="num">Digite um número:</label>
+    <input type="text" id="num" name="num">
+    <button type="submit">Gerar tabuada</button>
+  </form>
+  <div id="resultado"></div>
+  <script>
+    document.querySelector( 'form' ).addEventListener( 'submit', function ( e ) {
+      e.preventDefault(); // previne o envio do formulário
+      var num = document.querySelector( '#num' ).value; // pega o número digitado pelo usuário
+      var tabuada = ''; // inicializa a string da tabuada
+
+      // laço para gerar a tabuada
+      for ( var i = 1; i <= 10; i++ ) {
+        tabuada += num + ' x ' + i + ' = ' + ( num * i ) + '<br>';
+      }
+
+      // exibe a tabuada na página
+      document.querySelector( '#resultado' ).innerHTML = tabuada;
+    } );
+  </script>
+</body>
+
+</html>

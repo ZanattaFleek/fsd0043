@@ -1,0 +1,65 @@
+<html>
+
+<head>
+  <script>
+    function inverterFrase () {
+      // Coloquei o conteúdo digitado em uma variável "frase"
+      var frase = document.getElementById( 'txtFrase' ).value
+
+      // Criei a variável que irá "contar" as vogais
+      var vogais = 0
+
+      // Variável que receberá a frase invertida
+      var fraseInvertida = ''
+
+      // Se não forneceu frase, aviso que é para fornecer
+      if ( frase.length > 0 ) {
+
+        // Contador começando do tamanho -1 afinal, é "zero based" e os índices vão de 0 a tamanho -1
+        for ( contador = frase.length - 1; contador >= 0; contador = contador - 1 ) {
+
+          // Esta variável é criada a cada loop do for e é isto mesmo, só existe aqui dentro do for (escopo)
+          // O método "charAt" pega o caracter correspondente ao índice do contador
+          var letra = frase.charAt( contador )
+
+
+          // coloco dentro da "frase invertida" a letra
+          fraseInvertida = fraseInvertida.concat( letra )
+
+          // Vejo se a séria "AEIOU" contém a letra em maiúsculo
+          // O operador "ternário" retornará 1 quando for vogal e 0 quando não for, e é somado no contador "vogais"
+          // Se não usar o parênteses para testar teremos erro (precedência de operadores!)
+          vogais = vogais + ( 'AEIOUÃÁÉÍÓÚÊÔ'.includes( letra.toUpperCase() ) ? 1 : 0 )
+
+        }
+
+        document.getElementById( 'txtFraseInvertida' ).innerHTML = fraseInvertida
+
+        document.getElementById( 'txtContadorVogais' ).innerHTML = 'Temos '.concat( vogais.toString() ).concat( ' vogal(is) nesta frase!' )
+
+      } else {
+
+        fraseInvertida = 'Forneça uma Frase para Inverter!!!!'
+
+      }
+
+
+
+    }
+  </script>
+</head>
+
+<body>
+  <field>
+    <label>Frase:</label>
+    <input type="text" id="txtFrase" />
+  </field>
+  <field>
+    <input type="button" value="Inverter" onclick="inverterFrase()" />
+  </field>
+  <h3>Frase Invertida:</h3>
+  <p id="txtFraseInvertida"></p>
+  <p id="txtContadorVogais"></p>
+</body>
+
+</html>
