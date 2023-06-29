@@ -27,11 +27,16 @@
         <input class="formularioInput" type="text" id="txtLogradouro" maxlength="50" />
         <span class="formularioSpan" id="errotxtLogradouro"></span>
 
-        <input class="formularioButton" onclick="btCadastrar()" type="button" value="Cadastrar" />
+        <input id="btCadastrar" class="formularioButton" onclick="btCadastrar()" type="button" value="Cadastrar" />
+        <input id="btConfirmarAlteracao" class="hidden" onclick="btCadastrar()" type="button"
+            value="Confirmar Alteração" />
+        <input id="btConfirmarExclusao" class="hidden" onclick="btConfirmarExclusao()" type="button"
+            value="Confirmar Exclusão" />
+
     </div>
 
     <div id="tblDados"></div>
-    
+
 </body>
 
 </html>
