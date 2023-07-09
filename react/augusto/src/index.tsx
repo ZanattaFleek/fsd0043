@@ -1,18 +1,3 @@
-//TODO - SVN - Upload
-//TODO - Arquivos Imagens para Fernando
-//TODO - Linha de código da Instalação para DEVs (React | MUI | Fonts | TypeScript)
-
-//TODO - Desenvolver Processo Lookup (Pesquisa Código + Descrição)
-
-//TODO Text Field
-
-//TODO - Barra de Status
-
-//TODO - Menu Superior com Hamburguer On | Off - Menu Lateral
-
-//TODO - Subir Imagem / Foto do Usuário
-
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
