@@ -1,4 +1,5 @@
-import { CadastroClienteInterface } from "./interfaces/Cliente.interfaces";
+import { CadastroClienteInterface } from "./interfaces/cliente.interfaces"
+import { eVazio } from "./utils/utils"
 
 let rsCliente: CadastroClienteInterface = {
     idCliente: 1,
@@ -14,3 +15,5 @@ console.log(rsCliente.email)
 rsCliente.email = 'zanatta@fleekcursos.com.br'
 
 console.log(rsCliente.email)
+
+console.log(eVazio(rsCliente.email))
