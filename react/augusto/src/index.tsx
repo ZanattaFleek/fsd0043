@@ -2,83 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-
-import { RouterProvider } from 'react-router-dom'
-import { router } from './Router/Router';
-
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
-import { ENDPOINT_GRAPHQL } from './ImportBackend/Config/emDesenvolvimento';
-
-import { setContext } from '@apollo/client/link/context';
-
-/*
-const getToken = () => {
-  const token = localStorage.getItem('token');
-  return token ? `Bearer ${token}` : '';
-};
-
-const client = new ApolloClient({
-  uri: `${graphQLServerURL}/graphql`,
-  request: (operation) => {
-    operation.setContext({
-      headers: {
-        authorization: getToken(),
-      },
-    });
-  },
-});
-*/
-
-const httpLink = createHttpLink( {
-  uri: ENDPOINT_GRAPHQL,
-} );
-
-const getToken = () => {
-  const token = localStorage.getItem( 'token' );
-  return token
-}
-
-const authLink = setContext( ( _, { headers } ) => {
-  // get the authentication token from local storage if it exists
-
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      authorization: getToken() ? `Bearer ${getToken()}` : "",
-    }
-  }
-} );
-
-const client = new ApolloClient( {
-  link: authLink.concat( httpLink ),
-  cache: new InMemoryCache({addTypename: false, }),
-  defaultOptions: {
-    query: {
-      fetchPolicy: 'no-cache'
-    },
-    mutate: {
-      fetchPolicy: 'no-cache'
-    }
-  }
-} );
-
-/*
-const client = new ApolloClient( {
-  uri: ENDPOINT_GRAPHQL,
-  cache: new InMemoryCache(),
-} );
-*/
+import App from './app';
 
 const root = ReactDOM.createRoot(
-  document.getElementById( 'root' ) as HTMLElement
+  document.getElementById('root') as HTMLElement
 );
 
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <RouterProvider router={router} />
-    </ApolloProvider>
+    <App />
   </React.StrictMode>
 );
 
