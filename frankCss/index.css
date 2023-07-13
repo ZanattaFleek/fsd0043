@@ -1,0 +1,13 @@
+.calculadora {
+    width: 300px;
+    background-color: red;
+    margin: auto;
+}
+
+.calculadoraTabela {
+    width: 100%;
+}
+
+.calculadoraVisor {
+    width: 100%;
+}
