@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom/client';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import App from './app';
+import ClsSQLite from './ClsSQLite';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const clsDB: ClsSQLite = new ClsSQLite()
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App clsDB={clsDB} />
   </React.StrictMode>
 );
 
