@@ -20,13 +20,10 @@ export default class ClsSQLite {
             if (this.db) {
 
                 this.db.transaction('rw', 'clientes', 'fornecedores', () => {
-                    console.log(JSON.parse(objeto))
                     this.db.table(tabela).add(JSON.parse(objeto))
                 }).then(() => {
-                    console.log('OK Inclusao')
                     resolve(true)
                 }).catch((e: any) => {
-                    console.log('Erro Inclusão: ', e)
                     resolve(false)
                 })
             } else {
@@ -36,17 +33,9 @@ export default class ClsSQLite {
         })
     }
 
-    public consultar(tabela: string): Promise<Array<never>> {
+    public consultar(tabela: string): Promise<Array<any>> {
 
-        //@ts-ignore
-        return this.db.clientes.count().then(rs => {
-            console.log('Count:', rs)
-            //@ts-ignore
-            return this.db.table("clientes").toArray().then((rs: Array<any>) => {
-                console.log('Lista:', rs)
-                return rs
-            })
-        })
+        return this.db.table(tabela).toArray()
 
     }
 

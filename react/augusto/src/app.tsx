@@ -6,7 +6,7 @@ import ClsSQLite from './ClsSQLite'
 export default function App({ clsDB }: { clsDB: ClsSQLite }) {
 
     const [dados, setDados] = useState('{"nome": "Zanatta", "telefone": "Augusto"}')
-    const [listagem, setListagem] = useState([])
+    const [listagem, setListagem] = useState<any>([])
 
     const listarClientes = () => {
         clsDB.consultar('clientes').then(rs => {
