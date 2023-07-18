@@ -5,23 +5,26 @@ import ClsSQLite from './ClsSQLite'
 
 export default function App({ clsDB }: { clsDB: ClsSQLite }) {
 
-    const [dados, setDados] = useState('{"nome": "Zanatta", "telefone": "Augusto"}')
+    const [dados, setDados] = useState('')
     const [listagem, setListagem] = useState<any>([])
 
-    const listarClientes = () => {
-        clsDB.consultar('clientes').then(rs => {
-            setListagem(rs)
+    const incluir = () => {
+        clsDB.incluirTeste().then(rs => {
+            setDados(rs.toString())
         })
     }
 
-    const incluirClientes = () => {
-        clsDB.incluir('clientes', dados).then(() => {
-            listarClientes()
+    const pesquisarClientes = () => {
+
+        clsDB.consultar('clientes', 'nome', dados).then(rs => {
+            setListagem(rs)
         })
+
     }
 
     return (
         <>
+            <Button onClick={() => incluir()}>Incluir Clientes</Button>
             <TextField
                 id="outlined-textarea"
                 label="Clientes"
@@ -30,7 +33,7 @@ export default function App({ clsDB }: { clsDB: ClsSQLite }) {
                 value={dados}
                 onChange={(oque) => setDados(oque.target.value)}
             />
-            <Button onClick={() => incluirClientes()}>Incluir Clientes</Button>
+            <Button onClick={() => pesquisarClientes()}>Pesquisar Clientes</Button>
             {listagem.map((v: any, indice: number) => <div key={indice}>{v.nome}</div>)}
         </>
     )

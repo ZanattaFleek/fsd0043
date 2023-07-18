@@ -1,0 +1,59 @@
+interface IndiceInterface {
+	nome: string
+	campo: string
+	unique: boolean
+}
+
+interface TabelaInterface {
+	nome: string
+	chavePrimaria: string
+	indices: Array<IndiceInterface>
+}
+
+export default class ClsIndexDB {
+
+	private db: IDBDatabase | undefined
+	private db_tables: Array<IDBObjectStore> = []
+
+	public criarBanco(nome: string, versao: number, tabelas: Array<TabelaInterface>): Promise<boolean> {
+
+		return new Promise((resolve, _reject) => {
+
+			const request: IDBOpenDBRequest = window.indexedDB.open(nome, versao)
+
+			request.onsuccess = (event: any) => {
+				console.log('Dentro do on Success')
+				if (event && event.target)
+					this.db = event.target.result;
+				resolve(true)
+			}
+
+			request.onerror = (event) => {
+				console.log('Dentro do on Success')
+				resolve(false)
+			}
+
+			request.onupgradeneeded = (event: any) => {
+
+				if (event && event.target) {
+
+					this.db = event.target.result as IDBDatabase;
+
+					tabelas.forEach( tabela => {
+						
+						const objectStore = this.db.createObjectStore("name", { keyPath: "myKey" });
+
+					})
+
+
+				}
+
+			};
+
+		})
+
+	}
+
+
+
+}
