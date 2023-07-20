@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média Aritmética</title>
+    <script>var exports = {}</script>
+    <script src="../dist/ClsMedia.js"></script>
+    <script type="text/javascript">
+
+        const clsMedia = new ClsMedia()
+        
+        function verificarTecla(event) {
+            
+            // console.log(event)
+            
+            const txtNumero = document.getElementById('txtNumero')
+            const txtMedia = document.getElementById('txtMedia')
+
+            if (event.key === 'Enter') {
+
+                clsMedia.adicionarNumeroNoArray(parseInt(txtNumero.value))
+
+                txtMedia.value = clsMedia.getMedia()
+
+                txtNumero.value = ''
+
+            } else if (!(event.key >= '0' && event.key <= '9')) {
+                event.preventDefault()
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <label>Forneça um Número:</label>
+    <input type="text" id="txtNumero" onkeypress="verificarTecla(event)">
+
+    <label>Média:</label>
+    <input type="text" id="txtMedia" disabled>
+
+</body>
+
+</html>
