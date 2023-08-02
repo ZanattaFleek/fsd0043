@@ -1,0 +1,55 @@
+*:focus{
+    outline: none;
+}
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+}
+.container .form-Inp{
+    width: 90%;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
+.container .form-Inp:focus{
+    scale: 1.035;
+}
+.container .btn-Form{
+    width: 90%;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: aqua;
+}
+.container .btn-Form:hover{
+    background-color: blue;
+    color: white;
+}
