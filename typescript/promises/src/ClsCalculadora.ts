@@ -28,14 +28,18 @@ export default class ClsCalculadora {
         this.tmpResultado += numero
     }
 
-    public dividir(numero: number): void {
+    public dividir(numero: number): Promise<boolean> {
 
-        if (numero !== 0) {
-            this.tmpResultado = this.tmpResultado / numero
-        } else {
-            throw ('Divisão Por Zero!!!!')
-        }
+        return new Promise((resolve, reject) => {
 
+            if (numero !== 0) {
+                this.tmpResultado = this.tmpResultado / numero
+                resolve(true)
+            } else {
+                reject(false)
+            }
+
+        })
     }
 
     public multiplicar(numero: number): void {
