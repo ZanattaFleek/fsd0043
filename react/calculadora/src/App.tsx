@@ -10,6 +10,7 @@ import {
   Grid,
 } from "@mui/material";
 import Icon from "@mui/material/Icon";
+import BotaoNumeroCalculadora from "./BotaoNumeroCalculadora";
 
 // import Fingerprint from '@mui/icons-material/Fingerprint';
 
@@ -23,7 +24,7 @@ export default function App() {
   return (
     <>
       <Container maxWidth="xs">
-        <Paper elevation={3} sx={{ padding: 5, borderRadius: "5%" }}>
+        <Paper elevation={15} sx={{ padding: 3, borderRadius: "5%" }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -34,121 +35,17 @@ export default function App() {
               />
             </Grid>
 
-            <Grid item xs={3}>
-              <Button
-                onClick={() => acrescentarDisplay("1")}
-                fullWidth
-                variant="contained"
-              >
-                1
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button
-                onClick={() => acrescentarDisplay("2")}
-                fullWidth
-                variant="contained"
-              >
-                2
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                3
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                +
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                4
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                5
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                6
-              </Button>
-            </Grid>
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={1} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={2} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={3} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={4} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={5} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={6} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={7} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={8} />
+            <BotaoNumeroCalculadora dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={9} />
+            <BotaoNumeroCalculadora xs={12} dispararOnClick={(oque: string) => acrescentarDisplay(oque)} numero={0} />
 
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                -
-              </Button>
-            </Grid>
-
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                7
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                8
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                9
-              </Button>
-            </Grid>
-
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                *
-              </Button>
-            </Grid>
-
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                CE
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                0
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                =
-              </Button>
-            </Grid>
-
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                /
-              </Button>
-            </Grid>
-
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                x^2
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                RAIZ
-              </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                .
-              </Button>
-            </Grid>
-
-            <Grid item xs={3}>
-              <Button fullWidth variant="contained">
-                BACK
-              </Button>
-            </Grid>
           </Grid>
         </Paper>
       </Container>
