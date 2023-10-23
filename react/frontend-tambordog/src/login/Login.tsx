@@ -9,7 +9,11 @@ import {
   TextField,
 } from "@mui/material";
 
+import { useTheme } from "@mui/material/styles";
+
 export default function Login() {
+  const theme = useTheme();
+
   return (
     <>
       <Grid container minHeight="100vh" alignContent="center">
@@ -37,7 +41,9 @@ export default function Login() {
               </Grid>
 
               <Grid item xs={6} sx={{ textAlign: "right", mt: 3 }}>
-                <Button variant="text">Cadastrar</Button>
+                <Button variant="text" sx={{ color: theme.corBotao }}>
+                  Cadastrar
+                </Button>
               </Grid>
 
               <Grid item xs={12} sx={{ mt: 3 }}>
@@ -49,7 +55,6 @@ export default function Login() {
               <Grid item xs={12} sx={{ textAlign: "center", mt: 3 }}>
                 <Button variant="text">Esqueci a Senha</Button>
               </Grid>
-
             </Grid>
           </Paper>
         </Grid>
