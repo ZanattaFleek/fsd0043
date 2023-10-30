@@ -13,4 +13,19 @@ declare module "@mui/material/styles" {
 
 export const theme = createTheme({
   corBotao: "#9033FF",
+  components: {
+    MuiLink: {
+      defaultProps: {
+        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`
+      },
+      styleOverrides: {
+        root: {
+          textDecoration: "none",
+        },
+      },
+    },
+  },
+  typography: {
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`
+  },
 });

@@ -1,15 +1,11 @@
-import React from "react";
-
-// import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import AvatarGroup from "@mui/material/AvatarGroup";
-import Avatar from "@mui/material/Avatar";
+import { Avatar, AvatarGroup, Grid } from "@mui/material";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
-interface PropsInterface {
+interface propsCardEvento {
   titulo: string;
   imagem: string;
   cidade: string;
@@ -25,38 +21,89 @@ export default function CardEvento({
   uf,
   data,
   qtdInscritos,
-}: PropsInterface) {
+}: propsCardEvento) {
   return (
-    <Card sx={{ maxWidth: '300px', display: "flex" }}>
-      <CardMedia
-        component="img"
-        sx={{ width: "150px" }}
-        image={"/".concat(imagem)}
-        alt="Circuito Tambor Dog"
-      />
-
-      <Container>
-        <CardContent sx={{ alignContent: "left", textAlign: "left" }}>
-          <Typography component="h6" variant="h6">
-            {titulo}
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            color="text.secondary"
-            component="div"
-          >
-            {cidade} - {uf} - {data}
-          </Typography>
-
-          <AvatarGroup max={4}>
-            <Avatar alt="Remy Sharp" src="/logo192.png" />
-            <Avatar alt="Remy Sharp" src="/logo192.png" />
-            <Avatar alt="Remy Sharp" src="/logo192.png" />
-            <Avatar alt="Remy Sharp" src="/logo192.png" />
-            <Avatar alt="Remy Sharp" src="/logo192.png" />
-          </AvatarGroup>
-        </CardContent>
-      </Container>
-    </Card>
+    <>
+      <Card sx={{ display: "flex", marginTop: 1.5 }}>
+        <Grid container>
+          <Grid item>
+            <CardMedia
+              component="img"
+              sx={{ width: { xs: 64, sm: 128 }, height: { xs: 64, sm: 128 } }}
+              image={"/".concat(imagem)}
+              alt="Circuito Tambor Dog"
+            />
+          </Grid>
+          <Grid item>
+            <Grid item container direction="column">
+              <Grid item xs>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  sx={{ marginLeft: "5px" }}
+                >
+                  {titulo}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  display="block"
+                  gutterBottom
+                  sx={{ marginLeft: "5px" }}
+                >
+                  {cidade} - {uf} - {data}
+                </Typography>
+              </Grid>
+              <Grid item container direction="column">
+                <Grid
+                  item
+                  sx={{
+                    display: "flex",
+                    alignContent: "center",
+                    marginLeft: "5px",
+                  }}
+                >
+                  <AvatarGroup max={qtdInscritos}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/1.jpg"
+                    />
+                    <Avatar
+                      alt="Travis Howard"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                    <Avatar
+                      alt="Cindy Baker"
+                      src="/static/images/avatar/3.jpg"
+                    />
+                    <Avatar
+                      alt="Agnes Walker"
+                      src="/static/images/avatar/4.jpg"
+                    />
+                    <Avatar
+                      alt="Trevor Henderson"
+                      src="/static/images/avatar/5.jpg"
+                    />
+                  </AvatarGroup>
+                </Grid>
+                <Grid item>
+                  <Typography
+                    variant="caption"
+                    display="block"
+                    gutterBottom
+                    sx={{ textAlign: "right" }}
+                  >
+                    Inscritos
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <InfoOutlinedIcon />
+            <FavoriteBorderIcon />
+          </Grid>
+        </Grid>
+      </Card>
+    </>
   );
 }
