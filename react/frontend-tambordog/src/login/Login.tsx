@@ -5,30 +5,48 @@ import {
   Checkbox,
   FormControlLabel,
   Grid,
-  InputAdornment,
   Link,
   Paper,
-  TextField,
 } from "@mui/material"
 
 import { useTheme } from "@mui/material/styles"
-
-import VisibilityIcon from "@mui/icons-material/Visibility"
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
-import Condicional from "../components/Condicional"
 import InputFormat from "../components/InputFormat"
+import InputPassword from "../components/InputPassword"
 
 export default function Login() {
   const theme = useTheme()
 
-  const [exibirSenha, setExibirSenha] = useState("password")
-
-  const [x, setX] = useState()
+  const [erros, setErros] = useState({})
 
   const [dados, setDados] = useState({
     cpf: "",
-    senha: "JÁ VENHA PREENCHIDA",
+    senha: "",
   })
+
+  const validarDados = (): boolean => {
+    let retorno: boolean = true
+    let tmpErros: Record<string, string> = {}
+
+    if (dados.cpf.length === 0) {
+      tmpErros = { ...tmpErros, cpf: "CPF deve ser preenchido" }
+      retorno = false
+    }
+
+    if (dados.senha.length === 0) {
+      tmpErros = { ...tmpErros, senha: "Senha deve ser preenchida" }
+      retorno = false
+    }
+
+    setErros(tmpErros)
+
+    return retorno
+  }
+
+  const btEntrar = () => {
+    if (validarDados()) {
+      // Ação para Fazer a Entrada no Sistema....
+    }
+  }
 
   return (
     <>
@@ -52,35 +70,17 @@ export default function Login() {
                   setDados={setDados}
                   dados={dados}
                   campo="cpf"
+                  erros={erros}
                 />
               </Grid>
 
               <Grid item xs={12} sx={{ mt: 3 }}>
-                <TextField
-                  onChange={(evento) =>
-                    setDados({ ...dados, senha: evento.target.value })
-                  }
-                  value={dados.senha}
+                <InputPassword
+                  campo="senha"
                   label="Senha"
-                  type={exibirSenha}
-                  fullWidth
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="start">
-                        <Condicional condicao={exibirSenha === "text"}>
-                          <VisibilityIcon
-                            onClick={() => setExibirSenha("password")}
-                          />
-                        </Condicional>
-
-                        <Condicional condicao={exibirSenha === "password"}>
-                          <VisibilityOffIcon
-                            onClick={() => setExibirSenha("text")}
-                          />
-                        </Condicional>
-                      </InputAdornment>
-                    ),
-                  }}
+                  dados={dados}
+                  setDados={setDados}
+                  erros={erros}
                 />
               </Grid>
 
@@ -96,7 +96,11 @@ export default function Login() {
               </Grid>
 
               <Grid item xs={12} sx={{ mt: 3 }}>
-                <Button fullWidth variant="contained">
+                <Button
+                  onClick={() => btEntrar()}
+                  fullWidth
+                  variant="contained"
+                >
                   Entrar
                 </Button>
               </Grid>

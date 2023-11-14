@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import {
   FormControl,
   FormHelperText,
@@ -7,25 +7,42 @@ import {
 } from "@mui/material"
 
 import { IMaskInput } from "react-imask"
+import Condicional from "./Condicional"
 
 interface PropsInputInterface {
   label: string
   mask: string
   campo: string
   setDados: React.Dispatch<React.SetStateAction<any>>
-  dados: any
+  dados: Record<string, string | number>
+  erros: Record<string, string>
 }
 
 const MASK_DEFINITIONS = {
   "0": /[0-9]/,
-  "#": /[1-9]/,
-  "?": /[1-9 ]/,
   X: /[A-Z]/,
   x: /[a-z]/,
   a: /[A-Za-z]/,
   "*": /[A-Za-z0-9 ]/,
   l: /[A-Za-z0-9#@$%&*(){}!]/,
 }
+
+const MaskCustom = forwardRef((props: any, ref: any) => {
+  const { onChange, mask, ...other } = props
+
+  return (
+    <IMaskInput
+      {...other}
+      mask={mask}
+      definitions={MASK_DEFINITIONS}
+      inputRef={ref}
+      onAccept={(value: any) => {
+        onChange({ target: { name: props.name, value } })
+      }}
+      overwrite
+    />
+  )
+})
 
 /**
  * Formata o Texto de Acordo com a Máscara Fornecida
@@ -34,6 +51,7 @@ const MASK_DEFINITIONS = {
  * @param setDados - setState do Conjunto de Dados
  * @param dados - Dados Atuais a serem atualizados pelo setState
  * @param campo - Nome do campo a ser atualizado no setState
+ * @param erros - Objeto de Erro que caso exista o campo, será exibido
  * @returns void
  */
 export default function InputFormat({
@@ -42,33 +60,30 @@ export default function InputFormat({
   setDados,
   dados,
   campo,
+  erros,
 }: PropsInputInterface) {
-
   return (
     <>
       <FormControl sx={{ width: "100%", mt: 5 }}>
         <InputLabel
-          htmlFor="id-input"
+          htmlFor={campo}
           sx={{ backgroundColor: "white", paddingX: 1 }}
         >
           {label}
         </InputLabel>
         <OutlinedInput
-          id="id-input"
+          id={campo}
           onChange={(evento) =>
             setDados({ ...dados, [campo]: evento.target.value })
           }
           value={dados[campo]}
-          inputComponent={(props) => (
-            <IMaskInput
-              {...props}
-              overwrite
-              mask={mask}
-              definitions={MASK_DEFINITIONS}
-            />
-          )}
+          inputProps={{ mask: mask }}
+          inputComponent={MaskCustom}
         />
-        <FormHelperText>Texto de Ajuda do Form</FormHelperText>
+
+        <Condicional condicao={typeof erros[campo] !== "undefined"}>
+          <FormHelperText sx={{ color: "red" }}>{erros[campo]}</FormHelperText>
+        </Condicional>
       </FormControl>
     </>
   )
