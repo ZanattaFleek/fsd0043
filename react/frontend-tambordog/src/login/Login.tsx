@@ -12,6 +12,7 @@ import {
 import { useTheme } from "@mui/material/styles"
 import InputFormat from "../components/InputFormat"
 import InputPassword from "../components/InputPassword"
+import ClsValidacao from "../utils/ClsValidacao"
 
 export default function Login() {
   const theme = useTheme()
@@ -24,18 +25,28 @@ export default function Login() {
   })
 
   const validarDados = (): boolean => {
+    const clsValidacao: ClsValidacao = new ClsValidacao()
+
     let retorno: boolean = true
+
     let tmpErros: Record<string, string> = {}
 
-    if (dados.cpf.length === 0) {
-      tmpErros = { ...tmpErros, cpf: "CPF deve ser preenchido" }
-      retorno = false
-    }
+    // Posso declarar o tmpErros da forma abaixo.... mesma declaração com Record<T,T>
+    // let tmpErros: { [key: string]: string } = {}
 
-    if (dados.senha.length === 0) {
-      tmpErros = { ...tmpErros, senha: "Senha deve ser preenchida" }
-      retorno = false
-    }
+    retorno = clsValidacao.eCPF("cpf", dados, tmpErros, retorno)
+
+    retorno = clsValidacao.naoVazio("senha", dados, tmpErros, retorno)
+    retorno = clsValidacao.tamanho(
+      "senha",
+      dados,
+      tmpErros,
+      retorno,
+      false,
+      6,
+      10,
+      "Campo deve ter entre 6 e 10 caracteres"
+    )
 
     setErros(tmpErros)
 
