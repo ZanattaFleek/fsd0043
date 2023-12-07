@@ -13,6 +13,7 @@ import { useTheme } from "@mui/material/styles"
 import InputFormat from "../components/InputFormat"
 import InputPassword from "../components/InputPassword"
 import ClsValidacao from "../utils/ClsValidacao"
+import { useNavigate } from "react-router-dom"
 
 export default function Login() {
   const theme = useTheme()
@@ -53,8 +54,11 @@ export default function Login() {
     return retorno
   }
 
+  const navegar = useNavigate()
+
   const btEntrar = () => {
     if (validarDados()) {
+      navegar("/CadastroAtleta")
       // Ação para Fazer a Entrada no Sistema....
     }
   }

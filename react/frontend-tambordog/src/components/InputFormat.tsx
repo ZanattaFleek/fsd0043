@@ -66,7 +66,7 @@ export default function InputFormat({
 }: PropsInputInterface) {
   return (
     <>
-      <FormControl sx={{ width: "100%", mt: 5 }}>
+      <FormControl sx={{ width: "100%" }}>
         <InputLabel
           htmlFor={campo}
           sx={{ backgroundColor: "white", paddingX: 1 }}

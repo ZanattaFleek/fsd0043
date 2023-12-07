@@ -19,6 +19,8 @@ import {
 } from "@mui/material"
 import InputFormat from "../components/InputFormat"
 import InputSelect from "../components/InputSelect"
+import InputPassword from "../components/InputPassword"
+import { useNavigate } from "react-router-dom"
 
 export default function CadastroAtleta() {
   const [erros, setErros] = useState({})
@@ -33,24 +35,23 @@ export default function CadastroAtleta() {
     idEscola: 0,
   })
 
+  const navegar = useNavigate()
+
+  const btCadastrar = () => {
+    navegar("/EventosEmAberto")
+  }
+
   return (
     <>
       <Grid container justifyContent="center">
-        <Grid
-          item
-          xs={12}
-          sm={8}
-          md={5}
-          lg={4}
-          sx={{ backgroundColor: "yellow" }}
-        >
+        <Grid item xs={12} sm={8} md={10} lg={8} xl={6}>
           <Paper sx={{ padding: 3, margin: 3 }}>
             <Grid container>
               <Grid item xs={12} sx={{ textAlign: "center", mb: 3, mt: 3 }}>
                 <img src="./logo192.png" style={{ maxWidth: "100px" }} />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={12} md={4} sx={{ mt: 2 }}>
                 <InputFormat
                   label="CPF"
                   mask="000.000.000-00"
@@ -61,7 +62,7 @@ export default function CadastroAtleta() {
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={12} md={8} sx={{ mt: 2, pl: { md: 1 } }}>
                 <InputFormat
                   label="Nome"
                   setDados={setDados}
@@ -71,7 +72,17 @@ export default function CadastroAtleta() {
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={12} md={4} sx={{ mt: 2 }}>
+                <InputPassword
+                  campo="senha"
+                  label="Senha"
+                  dados={dados}
+                  setDados={setDados}
+                  erros={erros}
+                />
+              </Grid>
+
+              <Grid item xs={12} md={4} sx={{ mt: 2, pl: { md: 1 } }}>
                 <InputFormat
                   label="Data de Nascimento"
                   setDados={setDados}
@@ -81,7 +92,8 @@ export default function CadastroAtleta() {
                   type="date"
                 />
               </Grid>
-              <Grid item xs={12}>
+
+              <Grid item xs={12} md={4} sx={{ mt: 2, pl: { md: 1 } }}>
                 <InputFormat
                   mask={
                     dados.telefone.length <= 14
@@ -98,7 +110,7 @@ export default function CadastroAtleta() {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} sx={{ mt: 2 }}>
               <InputFormat
                 label="e-mail"
                 setDados={setDados}
@@ -109,7 +121,7 @@ export default function CadastroAtleta() {
               />
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} sx={{ mt: 2 }}>
               <InputSelect
                 label="Vinculo"
                 setDados={setDados}
@@ -121,17 +133,23 @@ export default function CadastroAtleta() {
                   { idEscola: 1, descricao: "Cia Cães" },
                   { idEscola: 2, descricao: "Fleek Cursos" },
                 ]}
-                nomeCampoChaveOpcoes='idEscola'
-                nomeCampoDescricaoOpcoes='descricao'
+                nomeCampoChaveOpcoes="idEscola"
+                nomeCampoDescricaoOpcoes="descricao"
               />
+            </Grid>
+
+            <Grid item xs={12} sx={{ mt: 2 }}>
+              <Button
+                onClick={() => btCadastrar()}
+                fullWidth
+                variant="contained"
+              >
+                Cadastrar
+              </Button>
             </Grid>
           </Paper>
         </Grid>
       </Grid>
-
-      <p>{JSON.stringify(dados)}</p>
-
-      <p>{dados.telefone.length}</p>
     </>
   )
 }
