@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 
 import {
   Button,
@@ -9,15 +9,16 @@ import {
   Paper,
 } from "@mui/material"
 
-import { useTheme } from "@mui/material/styles"
 import InputFormat from "../components/InputFormat"
 import InputPassword from "../components/InputPassword"
 import ClsValidacao from "../utils/ClsValidacao"
 import { useNavigate } from "react-router-dom"
+import {
+  ContextoGlobal,
+  ContextoGlobalInterface,
+} from "../globalstate/ContextoGlobal"
 
 export default function Login() {
-  const theme = useTheme()
-
   const [erros, setErros] = useState({})
 
   const [dados, setDados] = useState({
@@ -56,10 +57,18 @@ export default function Login() {
 
   const navegar = useNavigate()
 
+  const { usuarioState, setUsuarioState } = useContext(
+    ContextoGlobal
+  ) as ContextoGlobalInterface
+
   const btEntrar = () => {
+
     if (validarDados()) {
+
+      setUsuarioState({ ...usuarioState, logado: true })
       navegar("/CadastroAtleta")
       // Ação para Fazer a Entrada no Sistema....
+      
     }
   }
 
