@@ -8,9 +8,9 @@ import {
 } from "./globalstate/ContextoGlobal"
 import { useUsuarioState } from "./globalstate/UsuarioState"
 import { useLayoutState } from "./globalstate/LayoutState"
-import CadastroAtleta from "./atleta/CadastroAtleta"
 import { Outlet } from "react-router-dom"
 import Condicional from "./components/Condicional"
+import MenuInferior from "./layout/MenuInferior"
 
 function App() {
   const { usuarioState, setUsuarioState } = useUsuarioState()
@@ -26,12 +26,10 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <h2>Estado do Usuário State</h2>
-        <h2>{JSON.stringify(usuarioState)}</h2>
-
         <ContextoGlobal.Provider value={ContextoGlobalDefault}>
           <Condicional condicao={usuarioState.logado}>
             <Outlet />
+            <MenuInferior />
           </Condicional>
 
           <Condicional condicao={!usuarioState.logado}>
